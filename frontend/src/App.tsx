@@ -1,61 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Scroll from "./Scroll";
+import "./App.css"; // Добавь стили, если нужно
 
 const App: React.FC = () => {
-  const [itemName, setItemName] = useState('');
-  const [itemPrice, setItemPrice] = useState<number | string>('');
-  const [response, setResponse] = useState<any>(null);
-
-  const handleSubmit = async () => {
-    const itemData = {
-      name: itemName,
-      price: parseFloat(itemPrice as string),
-    };
-
-    try {
-      const res = await fetch('http://127.0.0.1:8000/items/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(itemData),
-      });
-
-      if (res.ok) {
-        const data = await res.json();
-        setResponse(data);
-      } else {
-        console.error('Request failed with status:', res.status);
-      }
-    } catch (error) {
-      console.error('Error sending request:', error);
-    }
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div>
-      <h1>FastAPI & React with Fetch</h1>
-      <input
-        type="text"
-        placeholder="Item name"
-        value={itemName}
-        onChange={(e) => setItemName(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Item price"
-        value={itemPrice}
-        onChange={(e) => setItemPrice(e.target.value)}
-      />
-      <button onClick={handleSubmit}>Submit</button>
+    <Scroll onChange={setActiveIndex}>
+      {/* Блок 1: Главный заголовок */}
+      <div className="section title-section">
+        <h1>PYTHON BACKEND DEVELOPER</h1>
+      </div>
 
-      {response && (
-        <div>
-          <h2>Response from API:</h2>
-          <p>Name: {response.name}</p>
-          <p>Price: {response.price}</p>
+      {/* Блок 2: About Me */}
+      <div className="section about-section">
+        <div className="about-text">
+          <h2>About Me</h2>
+          <p>Я опытный бэкенд-разработчик, специализирующийся на Python.</p>
         </div>
-      )}
-    </div>
+        <img src="/me.jpg" alt="My Photo" className="about-photo" />
+      </div>
+
+      {/* Блок 3: My Projects */}
+      <div className="section projects-section">
+        <h2>My Projects</h2>
+        <div className="projects-grid">
+          <div className="project-card">Проект 1</div>
+          <div className="project-card">Проект 2</div>
+          <div className="project-card">Проект 3</div>
+        </div>
+      </div>
+
+      {/* Блок 4: My Skills */}
+      <div className="section skills-section">
+        <h2>My Skills</h2>
+        <div className="skills-grid">
+          <div className="skill-card">Python</div>
+          <div className="skill-card">Django</div>
+          <div className="skill-card">Flask</div>
+          <div className="skill-card">PostgreSQL</div>
+        </div>
+      </div>
+
+      {/* Блок 5: My Contacts */}
+      <div className="section contacts-section">
+        <h2>My Contacts</h2>
+        <div className="contacts-grid">
+          <a href="https://github.com" className="contact-card">GitHub</a>
+          <a href="https://linkedin.com" className="contact-card">LinkedIn</a>
+          <a href="mailto:me@example.com" className="contact-card">Email</a>
+        </div>
+      </div>
+
+      {/* Блок 6: Write Me */}
+      <div className="section write-me-section">
+        <h2>Write Me</h2>
+        <form className="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </Scroll>
   );
 };
 

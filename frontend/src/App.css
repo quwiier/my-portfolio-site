@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ms-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ms-item {
+  width: 100vw;
+  height: 103vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title-section {
+  background: #FFF5EE;
+  color: #1e293b;
+  font-size: 3rem;
+}
+
+.about-section {
+  background: lightgray;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.about-text {
+  max-width: 50%;
+}
+
+.about-photo {
+  width: 200px;
+  border-radius: 10px;
+}
+
+.projects-section,
+.skills-section,
+.contacts-section,
+.write-me-section {
+  background: #f4f4f4;
+}
+
+.projects-grid,
+.skills-grid,
+.contacts-grid {
+  display: flex;
+  gap: 20px;
+}
+
+.project-card,
+.skill-card,
+.contact-card {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background: black;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  border: none;
+  cursor: pointer;
 }
