@@ -12,7 +12,7 @@ body {
 
 .ms-item {
   width: 100vw;
-  height: 103vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,32 +30,55 @@ body {
 }
 
 .title-section {
+  font-size: 3rem;
+  text-align: center;
+  vertical-align: center;
+}
+
+.title-section,
+.projects-section,
+.contacts-section {
   background: #FFF5EE;
   color: #1e293b;
-  font-size: 3rem;
+}
+
+.about-section,
+.skills-section,
+.write-me-section {
+  background: #FFFAFA;
+  color: #1e293b;
+}
+
+.sections-title {
+  font-size: 80px;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
 .about-section {
-  background: lightgray;
+  gap: 0;
+}
+
+.about-content {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .about-text {
-  max-width: 50%;
+  border: 2px solid black;
+  padding: 10px;
+  max-width: 35%;
+  height: fit-content;
 }
 
 .about-photo {
-  width: 200px;
-  border-radius: 10px;
-}
-
-.projects-section,
-.skills-section,
-.contacts-section,
-.write-me-section {
-  background: #f4f4f4;
+  max-width: 30%;
+  height: auto;
+  clip-path: ellipse(50% 50% at 50% 50%);
 }
 
 .projects-grid,
@@ -69,7 +92,6 @@ body {
 .skill-card,
 .contact-card {
   padding: 20px;
-  background: white;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
