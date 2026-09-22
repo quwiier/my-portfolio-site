@@ -1,5 +1,29 @@
 import Image from "next/image";
 
+const projects = [
+  "Проект 1",
+  "Проект 2",
+  "Проект 3",
+  "Проект 4",
+  "Проект 5",
+  "Проект 6",
+];
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Python",
+  "FastAPI",
+  "Docker",
+  "Git",
+  "REST API",
+  "Figma",
+];
+
 export default function Home() {
   return (
     <main>
@@ -28,6 +52,32 @@ export default function Home() {
               Фото
             </div>
           </div>
+        </div>
+      </section>
+      <section className="projects">
+        <div className="projects__container">
+          <h2>MY PROJECTS</h2>
+
+          <div className="projects__grid">
+            {projects.map((project) => (
+              <article className="project-card" key={project}>
+                <h3>{project}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="skills">
+        <div className="skills__container">
+          <h2>MY SKILLS</h2>
+
+          <ul className="skills__grid">
+            {skills.map((skill) => (
+              <li className="skill-card" key={skill}>
+                {skill}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </main>
