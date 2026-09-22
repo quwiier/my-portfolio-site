@@ -66,7 +66,7 @@ npm run dev
 
 ```sh
 cd backend
-python -m venv .venv
+py -3.14 -m venv .venv
 ```
 
 Активируй окружение своей командой для системы, затем:
