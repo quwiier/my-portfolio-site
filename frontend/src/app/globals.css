@@ -238,17 +238,95 @@ body {
 }
 
 .contact-card strong,
-.contact-card div > span {
+.contact-card div>span {
   display: block;
 }
 
-.contact-card div > span {
+.contact-card div>span {
   margin-top: 4px;
   font-size: 0.85rem;
 }
 
 @media (max-width: 600px) {
   .contacts__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.write-me {
+  padding: 80px 20px;
+  background: var(--color-background);
+}
+
+.write-me__container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.write-me h2 {
+  margin: 0 0 40px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.write-me__form {
+  display: grid;
+  gap: 20px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.write-me__fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.write-me label {
+  display: grid;
+  gap: 8px;
+}
+
+.write-me input,
+.write-me textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--color-card);
+  border-radius: 8px;
+  background: var(--color-card);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.write-me textarea {
+  resize: vertical;
+}
+
+.write-me input:focus,
+.write-me textarea:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.write-me button {
+  justify-self: center;
+  min-width: 160px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: white;
+  font: inherit;
+}
+
+.write-me button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .write-me__fields {
     grid-template-columns: 1fr;
   }
 }

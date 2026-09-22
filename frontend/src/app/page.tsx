@@ -106,6 +106,34 @@ export default function Home() {
           </ul>
         </div>
       </section>
+      <section className="write-me">
+        <div className="write-me__container">
+          <h2>WRITE ME</h2>
+
+          <form className="write-me__form">
+            <div className="write-me__fields">
+              <label>
+                Имя
+                <input name="name" type="text" required />
+              </label>
+
+              <label>
+                Email
+                <input name="email" type="email" required />
+              </label>
+            </div>
+
+            <label>
+              Сообщение
+              <textarea name="message" rows={6} required />
+            </label>
+
+            <button type="submit" disabled>
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
   );
 }
