@@ -24,6 +24,13 @@ const skills = [
   "Figma",
 ];
 
+const contacts = [
+  { name: "Email", value: "Адрес почты" },
+  { name: "Telegram", value: "Имя пользователя" },
+  { name: "LinkedIn", value: "Профиль" },
+  { name: "GitHub", value: "Профиль" },
+];
+
 export default function Home() {
   return (
     <main>
@@ -75,6 +82,25 @@ export default function Home() {
             {skills.map((skill) => (
               <li className="skill-card" key={skill}>
                 {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <section className="contacts">
+        <div className="contacts__container">
+          <h2>MY CONTACTS</h2>
+
+          <ul className="contacts__grid">
+            {contacts.map((contact) => (
+              <li className="contact-card" key={contact.name}>
+                <span className="contact-card__icon" aria-hidden="true">
+                  {contact.name[0]}
+                </span>
+                <div>
+                  <strong>{contact.name}</strong>
+                  <span>{contact.value}</span>
+                </div>
               </li>
             ))}
           </ul>
