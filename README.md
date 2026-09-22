@@ -3,11 +3,9 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
 ![Pydantic](https://img.shields.io/badge/Pydantic-Blue?style=for-the-badge&logo=pydantic&logoColor=white)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 ## 📌 О проекте
@@ -21,43 +19,61 @@
  - ✅ **Три языка** (Русский, Английский, Немецкий)
 
 ## ⚡ Технологии
-- **Backend:** FastAPI, PostgreSQL, SQLAlchemy, Pydantic
-- **Frontend:** Next.js (React), Tailwind CSS
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
+- **Backend:** FastAPI, Pydantic, Uvicorn
 - **DevOps:** Docker, Docker Compose
 
-## 🔧 Установка и запуск
+## Запуск через Docker
 
-### 1️⃣ Установи **Docker**
-[Загрузить Docker](https://www.docker.com/get-started/)
+Нужен установленный Docker с поддержкой Compose.
 
-### 2️⃣ Клонируй репозиторий
 ```sh
 git clone https://github.com/quwiier/my-portfolio-site.git
-
 cd my-portfolio-site
+docker compose up --build
 ```
-### 3️⃣ Создай .env
-В корне проекта добавь .env по образцу `.env-example`
-### 4️⃣ Запусти приложение
+
+После запуска:
+
+- Сайт: http://localhost:3000
+- API: http://localhost:8000
+- Проверка API: http://localhost:8000/api/health
+- Документация API: http://localhost:8000/docs
+
+Остановить приложение:
+
 ```sh
-docker-compose up --build
+docker compose down
 ```
-### 5️⃣ Открой сайт
- - Frontend (Next.js): http://localhost:3000
- - Backend (FastAPI): http://localhost:8000
- - Swagger UI (API docs): http://localhost:8000/docs
 
+После изменения кода пересобрать образы:
 
-TODO: лицензию MIT
+```sh
+docker compose up --build
+```
 
-____
-Для меня любимого:
+## Локальная разработка
 
-Запуск в Dev-режиме (с хот-релоудом):
-`docker-compose up`
+Фронтенд:
 
-Пересборка контейнеров:
-`docker-compose up --build`
+```sh
+cd frontend
+npm ci
+npm run dev
+```
 
-Остановка:
-`docker-compose down`
+Бэкенд — в отдельном терминале:
+
+```sh
+cd backend
+python -m venv .venv
+```
+
+Активируй окружение своей командой для системы, затем:
+
+```sh
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+База данных и корневой `.env` для текущего состояния проекта не требуются.
