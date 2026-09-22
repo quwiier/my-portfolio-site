@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const projects = [
   "Проект 1",
   "Проект 2",
