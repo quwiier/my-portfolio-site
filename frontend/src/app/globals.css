@@ -9,6 +9,13 @@
   --content-width: 960px;
 }
 
+main {
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  
+}
+
 body {
   background: var(--color-background);
   color: var(--color-text);
@@ -16,7 +23,6 @@ body {
 }
 
 .hero {
-  min-height: 70vh;
   display: grid;
   place-items: center;
   background: var(--color-background-accent);
@@ -315,4 +321,12 @@ body {
   .write-me__fields {
     grid-template-columns: 1fr;
   }
+}
+
+main > section {
+  box-sizing: border-box;
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
